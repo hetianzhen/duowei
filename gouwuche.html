@@ -73,10 +73,8 @@
 	</div>
 </div>
 
-		<div class="chanpin">
-			<div class="chan_1">
-				<input type="checkbox" name=""/>
-			</div>
+		<div class="chanpin" id="box">
+			<!-- <div class="chan_1"><input type="checkbox"/></div>
 			
 			<div class="chan_2">
 				<img src="img/timg1.jpg">
@@ -93,7 +91,7 @@
 				<input type="button" name="" value="+">
 				<span class="sp_three">￥6888</span>
 				<span class="sp_four">删除</span>
-			</div>
+			</div> -->
 		</div>
 
 
@@ -106,30 +104,31 @@
 
 <script type="text/javascript">
 	 $(function () {
+	 	// let id="1";
         $.ajax({
             type:"get",
             url:"getShoppingCart.php",
+            data:{
+            	"goodsId":id
+            },
             success:function (data) {
                 showShoppingCart(data);
-            },
-            dataType:"json"
+            }
         });
     });
 
     function showShoppingCart(datas) {
-        let $ulbox = $("#ulbox");
+        let $box = $("#box");
         for(let i=0;i<datas.length;i++){
-         
-
+        
             let str=
-        "<li><p><img src='"+datas[i].goodsImg+"'/></p>"+
-        // "<p>"+datas[i].goodsId+"</p>" +
-        "<p>"+datas[i].goodsName+"</p>" +
-        "<p>"+datas[i].goodsType+"</p>" +
-        "<p>￥&nbsp;"+datas[i].goodsPrice+".00</p></li>";
+        "<div><div class='chan_1'><input type='checkbox'/></div>"+
+        "<div class='chan_2'><img src='"+datas[i].goodsImg+"'/><ul><li>"+datas[i].goodsName+"</li><li></li></ul></div>"+
+        "<div class='chan_3'><span class='sp_one'>"+datas[i].goodsPrice+"</span><input type='button' value='-'/><span class='sp_two'>"+datas[i].goodsCount+"</span><input type='button' value='+'><span class='sp_three'>"+datas[i].goodsPrice+"<span class='sp_four'></span></div>";
                 
-            $ulbox.append(str);
+            $box.append(str);
         }
     }
+
  
 </script>

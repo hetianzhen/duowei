@@ -414,24 +414,27 @@ $("#choose li").on("click",function(){
 
 
 
-alert($("#shumu").html());
+// alert($("#shumu").html());
 
 $("#jiaru").on("click",function(){
 		let user="15592395432";
+		let id="1";
         $.ajax({
             type:"get",
             url:"addShoppingCart.php",
             data:{
             	"vipName":user,
+            	"goodsId":id,
             	"goodsCount":$("#shumu").html(),
             	"goodsImg":$("#tupain").attr("src"),
             	"goodsName":$("#mingzi").html(),
+				// "beiyong1":$("#_li1").html(),
             	"goodsPrice":$("#sp11").html()
             },
             success:function (data) {
                if(data==1){
                	alert("商品添加成功")
-               	location.href="index1.html"
+               	// location.href="index1.html"
                }else{
                	alert("商品添加失败");
                }

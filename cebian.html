@@ -44,6 +44,7 @@
 	</div>
 
 <!-- 轮播图上面的定位栏目1 -->
+<div id="big">
 		<div id="third_left">
 			<dl id="hua1" class="left1">
 				<dt><a href="#">智能设备</a></dt>
@@ -74,6 +75,7 @@
 				<dd><a href="#">小朵暖手抱枕</a></dd>
 				<dd><a href="#">便捷式背包</a></dd>
 			</dl>
+
 		</div>
 
 <!-- 轮播图上面的定位栏目2，划过1显示 -->
@@ -89,7 +91,7 @@
 				</div>
 			</div>
 			
-			<div class="youbian">
+			<div class="youbian you">
 				<div class="motai _motai1">
 					<a class="mo1 _mo1" href="#"><img  src="img/shouji2.jpg"></a>
 					<a class="moa1 _moa1" href="#">朵唯长公主L925</a>
@@ -108,7 +110,7 @@
 				</div>
 			</div>
 
-			<div class="youbian">
+			<div class="youbian you">
 				<div class="motai _motai11">
 					<a class="mo1" href="#"><img  src="img/peijian2.png"></a>
 					<a class="moa1" href="#">数据线</a>
@@ -131,7 +133,7 @@
 			</div>
 
 		</div>
-
+</div>
 		
 </body>
 </html>
@@ -175,7 +177,12 @@ $(function(){
 	// 	$("#third_zhong div:nth-child(2)").css({"display":"block"});
 	// });
 
-	 
+$("#third_left dl").on("click",function(){
+			var index = $(this).index();
+			$(this).addClass("left1").siblings().removeClass("left1");
+			$("#third_zhong .youbian").eq(index).removeClass("you").siblings().addClass("you");
+});	
+
 	
 
 

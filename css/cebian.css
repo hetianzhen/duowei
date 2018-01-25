@@ -150,8 +150,33 @@ body {
 
 #third_zhong {
   position: absolute;
-  width: 300px;
+  float: left;
+  width: 248px;
   height: 410px;
-  background: red;
+  background: #ead7f6;
+  opacity: 0.9;
   top: 135px;
-  left: 298px; }
+  left: 298px;
+  display: block; }
+
+.motai {
+  float: left;
+  width: 248px;
+  height: 100px;
+  background: #ead7f6; }
+  .motai .mo1 {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-top: 15px; }
+    .motai .mo1 img {
+      width: 75px;
+      height: 75px;
+      margin-left: 10px; }
+  .motai .moa1 {
+    display: block;
+    margin-top: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #000000; }
