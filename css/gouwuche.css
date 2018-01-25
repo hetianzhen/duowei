@@ -168,13 +168,11 @@ body {
       border-bottom: 5px solid  #e5006a; }
 
 .for {
-  width: 100%;
-  background: pink; }
+  width: 100%; }
 
 .forth {
   width: 1250px;
   margin: 0 auto;
-  background: orange;
   border-bottom: 1px solid #e5e5e5;
   overflow: hidden; }
   .forth #ulOne {
@@ -216,37 +214,82 @@ body {
   border-right: 1px solid #e5e5e5;
   text-align: center; }
 
-.chanpin1 {
+.chanpin {
   width: 1250px;
   margin: 0 auto;
-  height: 183px;
-  background: red;
-  border-bottom: 1px solid #e5e5e5; }
-  .chanpin1 .chan_1 {
+  background: pink;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden; }
+  .chanpin .chan_1 {
     display: inline-block;
     float: left;
     width: 120px;
     height: 183px;
-    line-height: 183px;
-    background: yellow; }
-    .chanpin1 .chan_1 input {
+    line-height: 183px; }
+    .chanpin .chan_1 input {
       display: inline-block;
       line-height: 183px;
       margin-left: 30px; }
-  .chanpin1 .chan_2 {
+  .chanpin .chan_2 {
     float: left;
     width: 600px;
     height: 183px;
-    line-height: 183px;
-    background: green; }
-    .chanpin1 .chan_2 img {
+    line-height: 183px; }
+    .chanpin .chan_2 img {
+      display: block;
       float: left;
-      display: inline-block;
       width: 100px;
-      height: 100px; }
-    .chanpin1 .chan_2 #span_one {
-      float: left;
-      display: block; }
-    .chanpin1 .chan_2 #span_two {
-      float: left;
-      display: block; }
+      height: 100px;
+      margin-left: 50px;
+      margin-top: 45px; }
+    .chanpin .chan_2 ul {
+      margin-top: 45px;
+      float: left; }
+
+ul li:nth-child(1) {
+  height: 30px;
+  line-height: 30px;
+  color: #7e7e7e;
+  font-weight: 900; }
+
+ul li:nth-child(2) {
+  height: 30px;
+  line-height: 30px;
+  color: #7e7e7e; }
+
+.chan_3 {
+  display: block;
+  float: left;
+  height: 183px;
+  width: 520px; }
+  .chan_3 .sp_one {
+    float: left;
+    display: block;
+    width: 130px;
+    height: 30px;
+    line-height: 183px;
+    margin-left: 35px;
+    color: #7e7e7e; }
+  .chan_3 input {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: 80px; }
+  .chan_3 .sp_two {
+    color: #7e7e7e; }
+  .chan_3 .sp_three {
+    width: 130px;
+    height: 30px;
+    line-height: 183px;
+    margin-left: 70px;
+    color: #ff0000;
+    color: #7e7e7e; }
+  .chan_3 .sp_four {
+    width: 130px;
+    height: 30px;
+    line-height: 183px;
+    margin-left: 80px;
+    color: #7e7e7e; }
+
+.sp_four:hover {
+  cursor: pointer; }

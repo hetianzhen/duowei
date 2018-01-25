@@ -50,35 +50,35 @@
 		<div class="third">
 			<div class="three">
 				<div class="three_left">
-					<form class="forms">
+					<form class="forms" method="post" action="php/zhuce1.php" id="f">
 						<img src="img/biaodan.png"/>
 
 						<p class="p1">
 							<span class="sp1">*</span>
-		                	<label>手机或邮箱: &nbsp;</label> 
-		              		<input class="inp1" class="txt" placeholder=" 请输入手机或邮箱..." type="text"/>
-							<span class="tishi">skskj</span>
+		                	<label >手机或邮箱: &nbsp;</label> 
+		              		<input name="username" id="phoneId" class="inp1" class="txt" placeholder=" 请输入手机或邮箱..." type="text"/>
+							<span id="shouji" ></span>
                			 </p>
 
                			 <p class="p2">
 							<span id="sp2">*</span>
 		                	<label>验证码: &nbsp;</label> 
 		              		<input class="inp2" class="txt" placeholder=" 请输入验证码..." type="text"/>
-							<span id="_tishi">A S F R</span>
+							<span  id="tishione">A S F R</span>
                			 </p>
 
                			 <p class="p1">
 							<span class="sp1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span>
 		                	<label>密码: &nbsp;</label> 
-		              		<input class="inp1" class="txt" placeholder=" 请输入密码..." type="text"/>
-							<span class="tishi">skskj</span>
+		              		<input name="userpass" id="mima" class="inp1" placeholder=" 请输入密码..." type="password"/>
+							<span id="tishi222"></span>
                			 </p>
 
                			 <p class="p1">
 							<span class="sp1">&nbsp;&nbsp;&nbsp;*</span>
 		                	<label>确认密码: &nbsp;</label> 
-		              		<input class="inp1" class="txt" placeholder=" 确认密码..." type="text"/>
-							<span class="tishi">skskj</span>
+		              		<input id="chongfu" class="inp1"  placeholder=" 确认密码..." type="password"/>
+							<span  id="tishi333"></span>
                			 </p>
 
                			 <p class="p3">
@@ -196,7 +196,15 @@
 </html>
 
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/tools.js"></script>
 <script type="text/javascript"> 
+
+
+function my$(id){
+	return document.getElementById(id);
+}
+
+
 		var num = 0;
 		window.onscroll = function(){
 			var up = document.getElementById("top");
@@ -211,5 +219,95 @@
 		function goTop(){
 			document.body.scrollTop = document.documentElement.scrollTop = 0;
 		}
+
+
+
+window.onload=function(){
+	
+	my$("phoneId").onblur = function(){
+		var regPhone = /^1(3|4|5|7|8|9)\d{9}$/;  //一共十一位数，1开头，后面是十位数字
+		var phoneId = document.getElementById("phoneId").value;
+		if(!regPhone.test(phoneId)){
+document.getElementById("shouji").innerHTML="手机号或者邮箱不合法！";
+document.getElementById("shouji").style.color="red";
+			return;
+		}else{
+			document.getElementById("shouji").innerHTML="√";
+			document.getElementById("shouji").style.color="green";
+		}	
+	}
+
+
+	// my$("spann").onclick = function(){	
+	// 	my$("spann").innerHTML = getCheckMa(4);
+	// }
+
+
+
+	my$("mima").onblur = function(){	
+	    var miams=document.getElementById("mima").value;
+	    if(miams.length<6||miams.length>12){
+	    	// document.getElementById("xianshi").value="密码长度为6-12位";
+	    	document.getElementById("tishi222").innerHTML="密码长度为6-12位";
+	    	document.getElementById("tishi222").style.color="red";
+			return;
+		}
+		else{
+			document.getElementById("tishi222").innerHTML="√";
+			document.getElementById("tishi222").style.color="green";
+			
+		}
+	}
+
+
+	$("chongfu").onblur = function(){	
+	    var chongfus=document.getElementById("chongfu").value;
+	    var miams=document.getElementById("mima").value;
+	    if(chongfus!=miams){
+	    	document.getElementById("tishi333").innerHTML="与登录密码不相同";
+	    	document.getElementById("tishi333").style.color="red";
+		}
+		else{
+			document.getElementById("tishi333").innerHTML="√";
+			document.getElementById("tishi333").style.color="green";
+			
+		}
+	}
+
+}
+
+
+var usernameExists = true;
+$(function(){
+	// $("#tishione").on("click",function(){
+	// 	$("#tishione").html= getCheckMa(4);
+	// });
+	 $("#phoneId").blur(function () {
+            $.ajax({
+                url:"php/dizhi.php",
+                data:{"username":$("#phoneId").val()},
+                success:function (data) {
+                    if(data=="0"){
+                        usernameExists = false;
+                        $("#shouji").html("该用户名可用");
+                       
+                    }else{
+                        usernameExists = true;
+                        $("#shouji").html("该用户名已存在");
+                    }
+                }
+            });
+        });
+
+    $("#f").submit(function () {
+        if(usernameExists){
+            alert("亲，用户名已经存在");
+            return false;//阻止浏览器的默认行为。
+        }
+    });
+
+});
+
+
  
 </script>

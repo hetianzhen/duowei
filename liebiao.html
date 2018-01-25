@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>列表页</title>
+<link rel="stylesheet" type="text/css" href="css/liebiao.css"/>
+
+<body>
+<!-- 最上面 -->
+	<div class="f">
+		<div class="first">
+			<a class="fir_1" href="#">朵唯官方微信</a>
+			<a class="fir_2" href="#">朵唯商城APP</a>
+			<img src=""/>
+			<div class="first firstRight">
+				<a href="#"><img src="img/denglu.png"/></a>
+				<a class="fir_2" target="_self" href="denglu.html">登录</a><span>丨</span>
+				<a class="fir_2" target="_self" href="zhuce.html">注册</a>
+				<a href="#"><img class="img_1" src="img/gouwuche.png"/></a>
+				<a class="fir_3" href="#">购物车</a>
+				<a class="fir_4" href="#">0</a>
+			</div>
+		</div>
+	</div>
+<!-- 导航部分 -->
+<div class="s">
+	<div id="second">
+		<img style="display: inline-block;margin-left: 30px" src="img/doov.png">
+		<div id="second_zhong">
+			<a href="#">手机</a>
+			<a href="#">配件</a>
+			<a href="#">精致生活</a>
+			<a href="#">服务</a>
+			<a href="#">积分商城</a>
+		</div>
+		<div id="second_right">
+			<input type="text" placeholder ="商品搜索" name=""/>
+			<div class="img_2"><img src="img/sousuo.png"/></div>
+		</div>
+	</div>
+</div>
+
+<!-- 第三部分 -->
+<div class="third">
+	<a href="#">首页</a> 
+	<span>>&nbsp;&nbsp;&nbsp;手机</span>
+</div>
+
+<!-- 第四部分 -->
+<div class="fourth">
+	<div class="div_1">
+		<ul class="ul_1">
+			<li>手机系列</li>
+			<li>全部</li>
+			<li>A系列</li>
+			<li>L系列</li>
+			<li>M系列</li>
+			<li>S系列</li>
+		</ul>
+	</div>
+
+	<div class="div_1">
+		<ul class="ul_1">
+			<li>屏幕尺寸</li>
+			<li>全部</li>
+			<li>5.0英寸</li>
+			<li>5.2英寸</li>
+			<li>5.5英寸</li>
+		</ul>
+	</div>
+
+	<div class="div_1">
+		<ul class="ul_1 ul_2">
+			<li>网络类型</li>
+			<li>全部</li>
+			<li>全网通</li>
+			<li>移动联通双4G</li>
+			<li>移动4G</li>
+			<li>联通4G</li>
+		</ul>
+	</div>
+
+	<div class="div_1">
+		<ul class="ul_1">
+			<li>后置像素</li>
+			<li>全部</li>
+			<li>500万</li>
+			<li>800万</li>
+			<li>1300万</li>
+		</ul>
+	</div>
+
+	<div class="div_1">
+		<ul class="ul_1">
+			<li>运行内存</li>
+			<li>全部</li>
+			<li>1GB</li>
+			<li>2GB</li>
+			<li>3GB</li>
+			<li>4GB</li>
+		</ul>
+	</div>
+
+	<div class="div_1">
+		<ul class="ul_1 ul_3">
+			<li>价格区间</li>
+			<li>全部</li>
+			<li>500-1000元</li>
+			<li>1000-2000元</li>
+			<li>2000元以上</li>
+		</ul>
+	</div>
+
+</div>
+
+
+<!-- 第五部分图片 -->
+<div class="fifth">
+	<ul id="ulbox">
+		<!-- <li>
+			<p><img src="img/shouji2.jpg"/></p>
+            <p class="p11">商品编号：朵唯长公主L925</p>
+            <p class="p22">商品名称：全新上市</p>
+            <p class="p33">商品价格：￥ 2199.00</p>
+          
+        </li> -->
+	</ul>
+
+
+</div>
+
+
+
+
+</body>
+</html>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+           type:"get",
+            url:"getGoodsList.php",
+            success:function (data) {
+                showgoodsList(data);
+            },
+            dataType:"json"
+        });
+    });
+
+    function showgoodsList(datas) {
+        let $ulbox = $("#ulbox");
+        for(let i=0;i<datas.length;i++){
+            //1、创建li
+            // let str="<li><p>商品编号："+datas[i].goodsId+"</p>" +
+            //     "<p>商品名称："+datas[i].goodsName+"</p>" +
+            //     "<p>商品价格："+datas[i].goodsPrice+"</p>" +
+            //     "<p>商品图片：<img style='width:100px' src='"+datas[i].goodsImg+"'/></p></li>";
+
+            let str=
+        "<li><p><img src='"+datas[i].goodsImg+"'/></p>"+
+        // "<p>"+datas[i].goodsId+"</p>" +
+        "<p>"+datas[i].goodsName+"</p>" +
+        "<p>"+datas[i].goodsType+"</p>" +
+        "<p>￥&nbsp;"+datas[i].goodsPrice+".00</p></li>";
+                
+            $ulbox.append(str);
+        }
+    }
+</script>
+

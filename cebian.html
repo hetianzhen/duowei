@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>朵唯首页</title>
+<link rel="stylesheet" type="text/css" href="css/cebian.css"/>
+
+<body>
+<!-- 最上面 -->
+	<div class="f">
+		<div class="first">
+			<a class="fir_1" href="#">朵唯官方微信</a>
+			<a class="fir_2" href="#">朵唯商城APP</a>
+			<img src=""/>
+			<div class="first firstRight">
+				<a href="#"><img src="img/denglu.png"/></a>
+				<a class="fir_2" target="_self" href="denglu.html">登录</a><span>丨</span>
+				<a class="fir_2" target="_self" href="zhuce.html">注册</a>
+				<a href="#"><img class="img_1" src="img/gouwuche.png"/></a>
+				<a class="fir_3" target="_black" href="gouwuche.html">购物车</a>
+				<a class="fir_4" href="#">0</a>
+			</div>
+		</div>
+	</div>
+<!-- 导航部分 -->
+<div class="s">
+	<div id="second">
+		<img style="display: inline-block;margin-left: 30px" src="img/doov.png">
+		<div id="second_zhong">
+			<a target="_black" href="liebiao.html">手机</a>
+			<a href="#">配件</a>
+			<a href="#">精致生活</a>
+			<a href="#">服务</a>
+			<a href="#">积分商城</a>
+		</div>
+		<div id="second_right">
+			<input type="text" placeholder ="商品搜索" name=""/>
+			<div class="img_2"><img src="img/sousuo.png"/></div>
+		</div>
+	</div>
+</div>
+<!-- 轮播图 -->
+	<div id="box1">
+	</div>
+
+<!-- 轮播图上面的定位栏目1 -->
+		<div id="third_left">
+			<dl id="hua1" class="left1">
+				<dt><a href="#">智能设备</a></dt>
+				<dd><a href="#">依娃4G智能机</a></dd>
+				<dd><a href="#">小朵智能机械</a></dd>
+			</dl>
+
+			<dl id="hua2" class="left1">
+				<dt><a href="#">手机</a></dt>
+				<dd><a href="#">朵唯长公主L92</a></dd>
+				<dd><a href="#">朵喵喵L525</a></dd>
+			</dl>
+
+			<dl id="hua3" class="left1">
+				<dt><a href="#">配件</a></dt>
+				<dd><a href="#">数据线</a></dd>
+				<dd><a href="#">耳机</a></dd>
+			</dl>
+
+			<dl class="left1">
+				<dt><a href="#">精致生活</a></dt>
+				<dd><a href="#">小朵多媒体音</a></dd>
+				<dd><a href="#">音乐耳机</a></dd>
+			</dl>
+
+			<dl class="left1">
+				<dt><a href="#">积分商城</a></dt>
+				<dd><a href="#">小朵暖手抱枕</a></dd>
+				<dd><a href="#">便捷式背包</a></dd>
+			</dl>
+		</div>
+
+<!-- 轮播图上面的定位栏目2，划过1显示 -->
+		<div id="third_zhong">
+			<div class="youbian">
+				<div class="motai">
+					<a class="mo1" href="#"><img  src="img/shebei1.jpg"></a>
+					<a class="moa1" href="#">依娃4G智能机 (4G版)</a>
+				</div>
+				<div class="motai">
+					<a class="mo1" href="#"><img  src="img/shebei1.jpg"></a>
+					<a class="moa1" href="#">小朵智能机器人 (Wifi版)</a>
+				</div>
+			</div>
+			
+			<div class="youbian">
+				<div class="motai _motai1">
+					<a class="mo1 _mo1" href="#"><img  src="img/shouji2.jpg"></a>
+					<a class="moa1 _moa1" href="#">朵唯长公主L925</a>
+				</div>
+				<div class="motai _motai2">
+					<a class="mo1 _mo1" href="#"><img  src="img/shouji3.png"></a>
+					<a class="moa1 _moa1" href="#">朵喵喵L525</a>
+				</div>
+				<div class="motai _motai3">
+					<a class="mo1 _mo1" href="#"><img  src="img/shouji4.jpg"></a>
+					<a class="moa1 _moa1" href="#">朵唯A15</a>
+				</div>
+				<div class="motai _motai4">
+					<a class="mo1 _mo1" href="#"><img  src="img/shouji5.png"></a>
+					<a class="moa1 _moa1" href="#">朵唯L520</a>
+				</div>
+			</div>
+
+			<div class="youbian">
+				<div class="motai _motai11">
+					<a class="mo1" href="#"><img  src="img/peijian2.png"></a>
+					<a class="moa1" href="#">数据线</a>
+				</div>
+				
+				<div class="motai _motai22">
+					<a class="mo1" href="#"><img  src="img/peijian3.png"></a>
+					<a class="moa1" href="#">耳机</a>
+				</div>
+
+				<div class="motai _motai33">
+					<a class="mo1" href="#"><img  src="img/pejian4.png"></a>
+					<a class="moa1" href="#">耳机</a>
+				</div>
+
+				<div class="motai _motai44">
+					<a class="mo1" href="#"><img  src="img/peijian5.png"></a>
+					<a class="moa1" href="#">耳机</a>
+				</div>
+			</div>
+
+		</div>
+
+		
+</body>
+</html>
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/sliderShow.js"></script>
+<script type="text/javascript">
+
+function my$(id){
+	return document.getElementById(id);
+}
+
+
+window.onload = function(){
+	
+	let s = new SlideShow(my$("box1"),1263,409,["img/shouyeLun1.jpg","img/shouyeLun2.jpg","img/shouyeLun3.jpg","img/shouyeLun4.jpg"],2000,18,18,"#eedde9","#ffffff");
+	s.initUI();
+	s.initEvent();
+	s.autoChange();
+
+
+
+}
+
+
+
+$(function(){
+	 // $("#box").click(function(){
+	 // 	$("#zhengti").css({"left":"70px"});
+  //       //鼠标移入，并且点击box的时候，会触发事件
+  //   });
+	 // $("#box11").click(function(){
+	 // 	$("#zhengti").css({"left":"-2000px"});
+  //       //鼠标移入，并且点击box的时候，会触发事件
+  //   });
+
+	//  $("#hua1").mouseover(function(){
+	// 	$("#third_zhong").css({"display":"block"});
+	// 	$("#third_zhong div:nth-child(1)").css({"display":"block"});
+	// 	$("#third_zhong div:nth-child(2)").css({"display":"block"});
+	// });
+
+	 
+	
+
+
+
+
+});
+
+</script>

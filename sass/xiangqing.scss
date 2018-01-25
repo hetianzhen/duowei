@@ -246,6 +246,7 @@ body{
 	#ul1{
 		display: inline-block;
 		li{
+
 			display: inline-block;
 			width: 176px;
 			height: 55px;
@@ -282,6 +283,9 @@ body{
 			line-height: 55px;
 		}
 	}
+}
+li:hover{
+	cursor:pointer;
 }
 #goumai{
 	width:400px;

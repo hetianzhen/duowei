@@ -201,14 +201,13 @@ body{
 .for{
 	width:100%;
 	
-	background:pink;
 }
 
 .forth{
 	width:1250px;
 	margin:0 auto;
 	
-	background:orange;
+	// background:orange;
 	border-bottom:1px solid #e5e5e5;
 	overflow: hidden;
 	#ulOne{
@@ -255,19 +254,19 @@ body{
 			text-align: center;
 }
 
-.chanpin1{
+.chanpin{
 	width:1250px;
 	margin:0 auto;
-	height:183px;
-	background:red;
+	background:pink;
 	border-bottom:1px solid #e5e5e5;
+	overflow:hidden;
 	.chan_1{
 		display: inline-block;
 		float: left;
 			width: 120px;
 			height:183px;
 			line-height:183px;
-			background:yellow;
+			// background:yellow;
 			input{
 				display:inline-block;
 				line-height:183px;
@@ -280,20 +279,81 @@ body{
 			height:183px;
 			line-height:183px;
 			// overflow: hidden;
-			background:green;
+			// background:green;
 			img{
+				display:block;
 				float: left;
-				display: inline-block;
 				width: 100px;
 				height: 100px;
+				margin-left:50px;
+				margin-top: 45px;
 			}
-			#span_one{
+			ul{
+				margin-top: 45px;
 				float: left;
-				display: block;
+				// li{
+				// 	height:30;
+				// 	background:red;
+				// 	line-height: 30px;
+				// }
 			}
-			#span_two{
-				float: left;
-				display: block;
-			}
+
 	}
+}
+ul li:nth-child(1){
+	height:30px;
+	line-height: 30px;
+	color:#7e7e7e;
+	font-weight:900;
+}
+ul li:nth-child(2){
+	height:30px;
+	line-height: 30px;
+	color:#7e7e7e;
+}
+
+.chan_3{
+	display:block;
+	float:left;
+	height:183px;
+	width:520px;
+	// background:yellow;
+	.sp_one{
+		float: left;
+		display: block;
+		width: 130px;
+		height: 30px;
+		line-height: 183px;
+		margin-left:35px;
+		color: #7e7e7e;
+	}
+	input{
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin-top: 80px;
+
+	}
+	.sp_two{
+			color: #7e7e7e;
+		}
+
+	.sp_three{
+		width: 130px;
+		height: 30px;
+		line-height: 183px;
+		margin-left:70px;
+		color: #ff0000;
+		color: #7e7e7e;
+	}
+	.sp_four{
+		width: 130px;
+		height: 30px;
+		line-height: 183px;
+		margin-left:80px;
+		color: #7e7e7e;
+	}
+}
+.sp_four:hover{
+	cursor:pointer;
 }

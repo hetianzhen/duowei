@@ -138,10 +138,17 @@ body {
           border: 0;
           border: 1px solid #c164a5;
           font-size: 14px; }
-        .third .three .three_left .p1 .tishi {
+        .third .three .three_left .p1 #shouji {
           color: #666666;
           display: inline-block;
-          background: orange;
+          width: 220px; }
+        .third .three .three_left .p1 #tishi222 {
+          color: #666666;
+          display: inline-block;
+          width: 220px; }
+        .third .three .three_left .p1 #tishi333 {
+          color: #666666;
+          display: inline-block;
           width: 220px; }
 
 .p2 {
@@ -165,7 +172,7 @@ body {
     border: 0;
     border: 1px solid #c164a5;
     font-size: 14px; }
-  .p2 #_tishi {
+  .p2 #tishione {
     color: #666666;
     display: inline-block;
     background: pink;

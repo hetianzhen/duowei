@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
 <title>商品详情</title>
 <link rel="stylesheet" type="text/css" href="css/xiangqing.css"/>
 
@@ -60,37 +64,42 @@
 		</div>
 	</div>
 
-	<div class="right">
-		<p class="ppp1">朵唯长公主L925
+	<div id="start" class="right">
+		<p class="ppp1">
+			<span id="mingzi">朵唯长公主L925</span>
 			<span id="sp11">2199.00元</span>
 			<span id="sp22">(18:9超画屏手机全新上市)</span>
 		</p>
 		<p class="ppp2">购买本产品赠送积分2199&nbsp;&nbsp;&nbsp;新品上市</p>
 		<p class="ppp3">颜色</p>
+		
 		<ul id="ul1">
-			<li>瑶华紫</li>
-			<li>杜若蓝</li>
+			<li class="sd">瑶华紫</li>
+			<li class="sd">杜若蓝</li>
 		</ul>
+		
 		<p class="ppp3">内存容量</p>
+		
 		<ul id="ul2">
-			<li id="_li1">64G</li>
+			<li class="sd" id="_li1">64G</li>
 		</ul>
+		
 		<p class="ppp3">购买数量</p>
 		<div id="goumai">
 			<span class="ppp3">请选择:</span>
 			<input id="jia" type="button" name="" value="-">
-			<input id="shumu" type="text" name="" value="1">
+			<sapn style="display: inline-block;width: 30px;height: 30px;color: #666666;font-size: 14px;" id="shumu">1</sapn>
 			<input id="jian" type="button" name="" value="+">
 		</div>
 
 		<ul id="choose">
-			<li id="liji">立即购买</li>
-			<li id="jiaru">加入购物车</li>
+			<li class="sd" id="liji"><a href="#">立即购买</a></li>
+			<li class="sd" id="jiaru">加入购物车</li>
 		</ul>
 
 		<p class="lastP">
 			<span>商品分享</span>&nbsp;
-			<img src="img/weixin1.png"/>
+			<img id="tupain" src="img/weixin1.png"/>
 			<span>宝贝收藏</span>&nbsp;
 			<img src="img/shoucang1.jpg"/>
 		</p>
@@ -286,6 +295,32 @@ function hiddenBigMirror(){
 }
 
 window.onload = function(){
+	// 加减
+	var shumu = document.getElementById("shumu").innerHTML;
+	var jian=document.getElementById("jian");
+	var jia=document.getElementById("jia");
+
+	jian.onclick=function(){
+		//1、加法
+		//获得数量（个数）
+		shumu++;
+		document.getElementById("shumu").innerHTML=shumu;
+	}
+	jia.onclick=function(){
+		shumu--;
+		if(shumu>0){
+			document.getElementById("shumu").innerHTML=shumu;
+		}else{
+			shumu=1;
+			document.getElementById("shumu").innerHTML=1;
+		}
+	}
+
+
+
+
+
+// 放大镜
 	for(let i=0;i<5;i++){
 		my$("Imgs").children[i].onclick=function(){
 			let arr=["img/timg1.jpg","img/timg2.jpg","img/timg3.jpg","img/timg4.jpg","img/timg5.jpg"];
@@ -335,11 +370,74 @@ window.onload = function(){
 	}
 }
 
+// 吴昕版块
  $(".navBox li").on("click",function(){
 			var index = $(this).index();
 			$(this).addClass("nowNav").siblings().removeClass("nowNav");
 			$(".contBox .contList").eq(index).removeClass("hideList").siblings().addClass("hideList");
-		});	
+});	
+
+
+
+
+// 选中变成红色的边框
+$("#ul1 li").on("click",function(){
+	 var index = $(this).index();
+	 $(this).css({border : "1px solid #e5006a"});
+	 $(this).siblings().css({border : "1px solid #cccccc"});
+});	
+
+$("#choose li").on("click",function(){
+	 var index = $(this).index();
+	 $(this).css({border : "1px solid #e5006a"});
+	 $(this).siblings().css({border : "1px solid #cccccc"});
+});	
+
+$("#ul2 li").on("click",function(){
+	 var index = $(this).index();
+	 $(this).css({border : "1px solid #e5006a"});
+	 $(this).siblings().css({border : "1px solid #cccccc"});
+});	
+
+// for(let i=0;i<$("#start li").length;i++){
+// 	$(".sd"+i).click(function(){
+// 		$("#start li").css({"border":"1px solid #eeeeee"});
+// 		$(this).css({"border":"1px solid red"});
+// 	});
+// 
+
+$("#choose li").on("click",function(){
+	 var index = $(this).index();
+	 $(this).css({border : "1px solid #e5006a"});
+	 $(this).siblings().css({border : "1px solid #cccccc"});
+});	
+
+
+
+alert($("#shumu").html());
+
+$("#jiaru").on("click",function(){
+		let user="15592395432";
+        $.ajax({
+            type:"get",
+            url:"addShoppingCart.php",
+            data:{
+            	"vipName":user,
+            	"goodsCount":$("#shumu").html(),
+            	"goodsImg":$("#tupain").attr("src"),
+            	"goodsName":$("#mingzi").html(),
+            	"goodsPrice":$("#sp11").html()
+            },
+            success:function (data) {
+               if(data==1){
+               	alert("商品添加成功")
+               	location.href="index1.html"
+               }else{
+               	alert("商品添加失败");
+               }
+            }
+        });
+});	
 
 
 </script>
